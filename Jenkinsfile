@@ -20,6 +20,14 @@ pipeline{
                 sh 'mvn compile'
             }
         }
+        stage('trivy-file-scan'){
+            steps{
+                sh 'trivy fs --severity HIGH,CRITICAL --format json --output trivy-fs-result.json .'
+                sh ''' trivy convert \
+                --format template --template "@/usr/local/share/trivy/templates/html.tpl" \
+                -o trivy-fs-result.html trivy-fs-result.json '''
+            }
+        }
         stage('package'){
             steps{
                 sh 'mvn package'
