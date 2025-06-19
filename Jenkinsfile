@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('clone'){
             steps{
-                git 'https://github.com/VootlaSaiCharan/chatroom.git'
+                git 'https://github.com/BalwantAgri24/chatroom.git'
             }
         }
         stage('validate'){
@@ -65,7 +65,3 @@ pipeline{
         }
     }
 }
-
-
-
-
