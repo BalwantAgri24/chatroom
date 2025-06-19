@@ -38,7 +38,8 @@ pipeline{
                 sh 'cp -r target/chatroom-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war'
             }
         }
-         post {
+    }
+    post {
         always {
             script {
                 // Determine color based on build status
@@ -62,7 +63,6 @@ pipeline{
                 )
             }
         }
-    }
     }
 }
 
